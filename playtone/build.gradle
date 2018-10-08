@@ -16,11 +16,39 @@ dependencies {
     implementation libs.Kotlin
     implementation libs.Coroutines
 }
-repositories {
-    mavenCentral()
-}
+
 kotlin {
     experimental {
         coroutines "enable"
     }
 }
+
+// maven export stuff
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'PlayTone'
+    orgName = 'qwerty'
+
+    publishedGroupId = 'czf.pilsfree.qwerty'
+    libraryName = 'PlayTone'
+    artifact = 'playtone'
+
+    libraryDescription = 'Simple library for playing sine and non-sine waves'
+
+    siteUrl = 'https://github.com/qwerty2586/PlayTone'
+    gitUrl = 'https://github.com/qwerty2586/PlayTone.git'
+
+    libraryVersion = rootProject.ext.libraryVersion
+
+    developerId = 'qwerty'
+    developerName = 'qwerty qwerty'
+    developerEmail = 'qwerty@pilsfree.net'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: rootProject.file('gradle/install-v1.gradle')
+apply from: rootProject.file('gradle/bintray-android-v1.gradle')
