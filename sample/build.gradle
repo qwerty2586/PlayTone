@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion COMPILE_SDK
+    defaultConfig {
+        minSdkVersion project.MIN_SDK
+        targetSdkVersion project.TARGET_SDK
+
+        applicationId "czf.pilsfree.qwerty.pt.sample"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName libraryVersion
+    }
+}
+
+dependencies {
+    implementation libs.AppCompat
+    implementation libs.Kotlin
+    implementation libs.Coroutines
+    implementation libs.Anko
+    implementation project(':playtone')
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
+
